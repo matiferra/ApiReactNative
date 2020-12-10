@@ -52,12 +52,24 @@ class Api extends React.Component {
                         </View>
                         <View >
                         <Text style={styles.titulo}> Ingrese numero de Registro</Text>
-                            <InputText onChange={this.handlerObtenerNumeroRegistro} />    
-                            <Button
-                                onPress={this.handlerObtenerMedicamento}
-                                title="Apretar"
-                                color="#990"
-                            />
+                        <TextInput
+                            {...props
+                            
+                            } // Inherit any props passed to it; e.g., multiline, numberOfLines below
+                            editable
+                            keyboardAppearance={'light'}
+                            maxLength={4}  
+                            style={styles.cuadrado}
+                            onChangeText={text => onChangeText(text)}
+                            onChange={this.handlerObtenerNumeroRegistro}
+                            numberOfLines={4}
+                            value={value}      
+                        />
+                        <Button
+                            onPress={this.handlerObtenerMedicamento}
+                            title="Apretar"
+                            color="#990"
+                        />
                         <Text style={styles.aclaracion}> Existen a partir del numero 1 al numero 3944</Text>
                         </View>
                     </View>
@@ -86,6 +98,13 @@ class Api extends React.Component {
 }
 
 const styles = StyleSheet.create({
+    cuadrado: {
+        height: 40, 
+        borderColor: 'gray', 
+        borderWidth: 2,
+        margin: 10,
+        textAlign: 'center',
+    },
     peticiones: {
       color: 'white',
     },
